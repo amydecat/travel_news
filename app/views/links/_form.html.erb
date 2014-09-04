@@ -1,0 +1,11 @@
+<%= form_for (@link) do |f| %>
+  <div class="form-group">
+    <%= f.label "Headline" %>
+    <%= f.text_field :headline %>
+  </div>
+  <div class="form-group">
+    <%= f.label "URL" %>
+    <%= f.text_field :website %>
+  </div>
+  <%= f.submit %>
+<% end %>
