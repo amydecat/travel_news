@@ -8,6 +8,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'bootstrap-glyphicons'
 
 group :development do
   gem 'better_errors'

@@ -42,6 +42,6 @@ class VotesController < ApplicationController
 
 private
   def votes_params
-    params.require(:vote).permit(:id, like: => false)
+    params.require(:vote).permit(:id, :like)
   end
 end
