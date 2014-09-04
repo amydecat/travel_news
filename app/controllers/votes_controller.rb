@@ -12,6 +12,7 @@ class VotesController < ApplicationController
     @vote = @link.votes.create
     if @vote.valid?
       flash[:notice] = "Thanks for your vote!"
+      Link.increment_counter(:tally, @vote.link_id)
       redirect_to link_votes_path(@vote)
     else
       flash[:alert] = "Sorry, the vote didn't take."
