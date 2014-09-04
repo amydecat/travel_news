@@ -37,6 +37,7 @@ class VotesController < ApplicationController
 
   def destroy
     @vote = Vote.find(params[:id])
+    Link.decrement_counter(:tally, @vote.link_id)
     @vote.destroy
     flash[:notice] = "The vote has been removed"
     redirect_to votes_path
