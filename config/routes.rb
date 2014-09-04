@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'links#index'
-  resources :links
-  resources :votes
+  resources :links do
+    resources :votes
+  end
 end

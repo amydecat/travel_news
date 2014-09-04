@@ -8,10 +8,11 @@ class VotesController < ApplicationController
   end
 
   def create
-    @vote = Vote.create(votes_params)
+    @link = Link.find(params[:link_id])
+    @vote = @link.votes.create
     if @vote.valid?
       flash[:notice] = "Thanks for your vote!"
-      redirect_to vote_path(@vote)
+      redirect_to link_votes_path(@vote)
     else
       flash[:alert] = "Sorry, the vote didn't take."
       render "new"
@@ -24,7 +25,7 @@ class VotesController < ApplicationController
 
   def update
     @vote = Vote.find(params[:id])
-    if @vote.update(vote_params)
+    if @vote.update(votes_params)
       flash[:notice] = "You've successfully changed your vote"
       redirect_to edit_vote_path(@vote)
     else
@@ -42,6 +43,6 @@ class VotesController < ApplicationController
 
 private
   def votes_params
-    params.require(:vote).permit(:id, :like)
+    params.require(:vote).permit(:link_id)
   end
 end

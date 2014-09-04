@@ -3,7 +3,7 @@
 <ul>
   <% @links.each do |link| %>
     <li>
-      <%= image_tag("like-button.jpg", :alt => "like button", :class => "btn btn-xs", :id => "like") %>
+      <%= link_to image_tag("like-button.jpg", :alt => "like button"), link_votes_path(link), :data => {:method => "post"} %>
       <%= link_to "#{link.headline}", link.website %>
       <%= link_to "Comments", link_path(link) %>
       <%= link_to "Edit", edit_link_path(link) %>
