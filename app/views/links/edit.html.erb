@@ -1,0 +1,8 @@
+<h1>Edit the Link:</h1>
+<h2><%= @link.headline %></h2>
+
+<%= render('layouts/errors', :object => @link) %>
+
+<%= render ('form') %>
+
+<%= link_to "Home Page", links_path %>

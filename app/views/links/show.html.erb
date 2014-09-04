@@ -1,6 +1,5 @@
-<h1><%= @link.headline %></h1>
-
-<p><%= @link.website %></p>
+<h1><%= link_to "#{@link.headline}", @link.website %></h1>
 
 <%= link_to "Home Page", links_path %>
+
 
