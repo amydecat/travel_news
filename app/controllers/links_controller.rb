@@ -46,6 +46,6 @@ class LinksController < ApplicationController
 
 private
   def links_params
-    params.require(:link).permit(:headline, :website)
+    params.require(:link).permit(:headline, :website, :tally => 0)
   end
 end

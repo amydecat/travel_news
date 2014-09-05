@@ -1,7 +1,9 @@
 <h1>Travel News</h1>
 
+<% @sorted_links = @links.sort_by{|link| link.tally}.reverse %>
+
 <ul>
-  <% @links.each do |link| %>
+  <% @sorted_links.each do |link| %>
     <li>
       <%= link_to image_tag("like-button.jpg", :alt => "like button"), link_votes_path(link), :data => {:method => "post"} %> |
       <%= "#{link.tally} upvotes"%> |
