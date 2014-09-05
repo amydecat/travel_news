@@ -1,5 +1,14 @@
 <h1><%= link_to "#{@link.headline}", @link.website %></h1>
 
+<h2>Comments:</h2>
+<div class="comments">
+  <ul>
+  <% @link.comments.each do |comment| %>
+    <li><%= comment.opinion %></li>
+  <% end %>
+  </ul>
+</div>
+
 <%= render('comments/form') %>
 
 <%= link_to "Home Page", links_path %>
