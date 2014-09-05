@@ -1,5 +1,3 @@
-<h1>Travel News</h1>
-
 <ul>
   <% Link.sorted_links.each do |link| %>
     <li>
@@ -15,4 +13,4 @@
   <% end %>
 </ul>
 
-<%= link_to "Share a New Link", new_link_path %>
+<%= link_to "Share a New Link", new_link_path, :class => 'btn btn-default' %>
