@@ -4,7 +4,7 @@ class Link < ActiveRecord::Base
 
   has_many :votes
   has_many :comments
-  # has_many :comments, :as => :commentable
+  has_many :comments, :as => :commentable
 
   def self.sorted_links
     @links = Link.all.sort_by{|link| link.tally}.reverse

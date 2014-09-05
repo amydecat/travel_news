@@ -5,7 +5,7 @@ describe Link do
   it {should validate_presence_of :website}
   it {should have_many :votes}
   it {should have_many :comments}
-  # it {should have_many :comments, :as => :commentable}
+  it {should have_many :comments}
 
   it 'should sort by tally with the older links appearing lower' do
     link1 = Link.create(headline: 'Awesome trips', website: 'www.awesometrips.com', created_at: "2014-09-01 18:09:14.904763", tally: 5)
