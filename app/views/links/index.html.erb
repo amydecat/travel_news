@@ -1,6 +1,7 @@
 <h1>Travel News</h1>
 
-<% @sorted_links = @links.sort_by{|link| link.tally}.reverse %>
+<% @sorted_by_date = @links.sort_by{|link| link.created_at}.reverse %>
+<% @sorted_links = @sorted_by_date.sort_by{|link| link.tally}.reverse %>
 
 <ul>
   <% @sorted_links.each do |link| %>
