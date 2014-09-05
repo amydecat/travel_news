@@ -2,7 +2,6 @@
 
 <%= form_for [@link, @comment] do |f| %>
   <div class="form-group">
-    <%= f.label "Comment" %>
     <%= f.text_area :opinion %>
   </div>
   <%= f.submit(:class => "btn btn-primary") %>
