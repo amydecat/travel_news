@@ -9,14 +9,18 @@ class CommentsController < ApplicationController
 
   def create
     @link = Link.find(params[:link_id])
-    @comment = Comment.create(comments_params)
+    @comment = @link.comments.create(comments_params)
     if @comment.valid?
       flash[:notice] = "Thanks for your comment!"
-      redirect_to link_comments_path(@link)
+      redirect_to link_comments_path(@comment)
     else
       flash[:alert] = "Sorry! Your comment didn't get saved. Try again."
       render "new"
     end
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
   end
 
   def edit
