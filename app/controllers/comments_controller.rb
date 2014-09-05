@@ -8,14 +8,29 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @link = Link.find(params[:link_id])
-    @comment = @link.comments.create(comments_params)
-    if @comment.valid?
-      flash[:notice] = "Thanks for your comment!"
-      redirect_to link_comments_path(@comment)
+    if params[:parent_comment_id] != nil
+      @parent_comment = Comment.find(params[:parent_comment_id])
+      @comment = @parent_comment.comments.create(comments_params)
+      if @comment.valid?
+        flash[:notice] = "Thanks for your comment!"
+        redirect_to link_comments_path(@comment)
+      else
+        flash[:alert] = "Sorry! Your comment didn't get saved. Try again."
+        redirect_to link_path(@link)
+      end
+    elsif params[:link_id] != nil
+      @link = Link.find(params[:link_id])
+      @comment = @link.comments.create(comments_params)
+      if @comment.valid?
+        flash[:notice] = "Thanks for your comment!"
+        redirect_to link_comments_path(@comment)
+      else
+        flash[:alert] = "Sorry! You're in new link. Try again."
+        redirect_to link_path(@link)
+      end
     else
-      flash[:alert] = "Sorry! Your comment didn't get saved. Try again."
-      render "new"
+      flash[:alert] = "Sorry! You're outside. Try again."
+      redirect_to link_path(@link)
     end
   end
 
@@ -48,6 +63,6 @@ class CommentsController < ApplicationController
 
 private
   def comments_params
-    params.require(:comment).permit(:opinion, :link_id)
+    params.require(:comment).permit(:opinion)
   end
 end

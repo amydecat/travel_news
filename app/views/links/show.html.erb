@@ -4,13 +4,15 @@
 <div class="comments">
   <ul>
   <% @link.comments.each do |comment| %>
-    <li><%= comment.opinion %></li>
+    <li>
+      <%= comment.opinion %>
+    </li>
   <% end %>
   </ul>
 </div>
 
 <%= render('comments/form') %>
 
-<%= link_to "Home Page", links_path %>
+<%= link_to "Home Page", links_path, :class => "btn btn-default" %>
 
 
