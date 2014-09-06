@@ -1,0 +1,8 @@
+<%= render('layouts/errors', :object => @comment) %>
+
+<%= form_for [@commentable, @comment] do |f| %>
+  <div class="form-group">
+    <%= f.text_area :opinion %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
