@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_filter :authorize, only: [:edit, :update, :destroy]
+  before_filter :authorize, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @links = Link.all
@@ -22,6 +22,7 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find(params[:id])
+    @user = Link.find(params[:user_id])
     @comment = Comment.new
   end
 
@@ -49,6 +50,6 @@ class LinksController < ApplicationController
 
 private
   def links_params
-    params.require(:link).permit(:headline, :website, :tally => 0)
+    params.require(:link).permit(:headline, :website, :user_id, :tally => 0)
   end
 end

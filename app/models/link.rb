@@ -6,6 +6,8 @@ class Link < ActiveRecord::Base
   has_many :comments
   has_many :comments, :as => :commentable
 
+  belongs_to :user
+
   def self.sorted_links
     @links = Link.all.sort_by{|link| link.tally}.reverse
     @today_links = []

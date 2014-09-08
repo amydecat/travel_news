@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Vote do
   it {should belong_to :link}
+  it {should belong_to :user}
 
   it 'should return all votes associated with a specific link' do
     link = Link.create(headline: 'Life Rocks!', website: 'liferocks.com')
