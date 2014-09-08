@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_filter :authorize, only: [:edit, :update, :destroy]
+
   def index
     @votes = Vote.all
   end
