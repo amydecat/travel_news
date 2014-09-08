@@ -7,6 +7,7 @@ body {
 }
 
 .header {
+  margin-top: 3%;
   max-width: 100%;
   height: auto;
 }
@@ -18,3 +19,11 @@ body {
 .btn {
   margin: .75%;
 }
+
+.navbar-header {
+ position:absolute;
+ top:0;
+ right:0;
+ width:400px;
+}
+
