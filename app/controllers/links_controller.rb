@@ -11,6 +11,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.create(links_params)
+    @link.user_id = current_user.id
     if @link.valid?
       flash[:notice] = "You've successfully added a new link"
       redirect_to link_path(@link)
@@ -22,7 +23,6 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find(params[:id])
-    @user = Link.find(params[:user_id])
     @comment = Comment.new
   end
 
