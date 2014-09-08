@@ -6,7 +6,6 @@
   <% @link.comments.each do |comment| %>
     <li>
       <%= comment.opinion %>
-      <%= link_to "reply", link_comments_path(comment), :class => 'btn btn-primary btn-xs' %>
     </li>
   <% end %>
   </ul>

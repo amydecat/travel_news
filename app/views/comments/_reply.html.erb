@@ -1,6 +1,6 @@
 <%= render('layouts/errors', :object => @comment) %>
 
-<%= form_for [@commentable, @comment] do |f| %>
+<%= form_for [@comment.commentable, @comment] do |f| %>
   <div class="form-group">
     <%= f.text_area :opinion %>
   </div>
