@@ -1,0 +1,19 @@
+<h1>Sign Up</h1>
+
+<%= render('layouts/errors', :object => @user) %>
+
+<%= form_for @user do |f| %>
+<div class="form-group">
+  <%= f.label "E-mail" %>
+  <%= f.text_field :email %>
+</div>
+<div class="form-group">
+  <%= f.label "Password" %>
+  <%= f.text_field :password %>
+</div>
+<div class="form-group">
+  <%= f.label "Password Confirmation" %>
+  <%= f.text_field :password_confirmation %>
+</div>
+<%= f.submit "Sign Up", :class => "btn btn-small" %>
+<% end %>
