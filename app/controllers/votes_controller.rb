@@ -47,6 +47,6 @@ class VotesController < ApplicationController
 
 private
   def votes_params
-    params.require(:vote).permit(:link_id)
+    params.require(:vote).permit(:link_id, :user_id).merge(:user_id => current_user.id)
   end
 end
