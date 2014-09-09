@@ -6,7 +6,6 @@
   <% @link.comments.each do |comment| %>
     <li>
       <%= comment.opinion %> |
-      <%= link_to "Edit", edit_link_comment_path(comment) %> |
       <%= link_to "Delete", link_comment_path(comment),
                   :data => {:confirm => "Are you sure?",
                             :method => "delete"} %>
